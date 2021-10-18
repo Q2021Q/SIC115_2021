@@ -633,6 +633,16 @@ function mensajes($texto)
 
     echo "</script>";
 }
+
+//$mPartida="La partida se ha guardado con exito.";
+function msgDebeHaber($mPartida)
+{
+    echo "<script type='text/javascript'>";
+    echo "alert('$mPartida');";
+
+    echo "</script>";
+}
+
 function guardarPartida()
 {
           include "../config/conexion.php";
@@ -657,12 +667,12 @@ function guardarPartida()
   if(!empty($matriz))
   {
     //codigo para guardar en la tabla partida
-    $consulta  = "INSERT INTO partida VALUES('".$numeroPartida1."','" . $concepto . "','" . $fecha . "','" . $idanio . "')";
+    $consulta  = "INSERT INTO partida VALUES('".$numeroPartida1."','".$concepto."','".$fecha."','".$idanio."')";
     $resultado = $conexion->query($consulta);
     if ($resultado) {
         msg("Exito Partida");
       } else {
-        msg("No Exito Partida");
+        msg("No Exito Partida  (ESTAS EN EL ARCHIVO CORRECTO)");
     }
   }else {
     msgDebeHaber("Debe haber almenos un debe y un haber en la partida.");
@@ -674,7 +684,7 @@ function guardarPartida()
           $idcatalogo=$matriz[$i][0];
           $debe=$matriz[$i][1];
           $haber=$matriz[$i][2];
-          $consulta  = "INSERT INTO ldiario VALUES('null','" . $numeroPartida1 . "','" . $idcatalogo . "','" . $debe . "','" . $haber . "','" . $idanio . "')";
+          $consulta  = "INSERT INTO ldiario VALUES('null','" . $numeroPartida1 . "','" . $idcatalogo . "','" . $debe . "','" . $haber . "','" . $idanio . "');";
           $resultado = $conexion->query($consulta);
           if ($resultado) {
               msg("Exito Libro Diario.");
@@ -685,7 +695,8 @@ function guardarPartida()
   }
   unset($_SESSION["acumulador"]);
   unset($_SESSION["matriz"]);
-  $mPartida="La partida se ha guardado con exito.";
-  msgDebeHaber($mPartida);
+  
+ /* $mPartida="La partida se ha guardado con exito.";
+msgDebeHaber($mPartida);*/
 }
 ?>

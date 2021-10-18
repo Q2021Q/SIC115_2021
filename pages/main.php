@@ -85,7 +85,7 @@ if(empty($anio))
           }
         }
         function agregar(){
-          alert("Funcion agg");
+          alert("Funcion agg (FUN");
           var v=document.getElementById("anio").value;
             if (document.getElementById("anio").value=="") {
               alert("Campo obligatorio");
