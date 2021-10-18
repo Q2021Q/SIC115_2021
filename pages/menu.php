@@ -36,6 +36,7 @@ if($result)
         alert("Es necesario un conteo fisico del inventario final para realizar el Balance General.");
         $('#myModalB').modal('hide');
       }
+      
       function ir2()
       {
         document.location.href="balanceGeneral.php?if="+document.getElementById("inventarioFinal2").value;
