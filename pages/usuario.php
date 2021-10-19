@@ -130,7 +130,6 @@ if ($result) {
                               <span class="bar"></span>
                               <label>E-mail</label>
                             </div>
-
                             <div class="form-group form-animate-text" style="margin-top:30px !important;">
                               <input type="text" class="form-text" id="telefono" name="telefono" value="<?php echo $telefonoR ?? ""; ?>" required>
                               <span class="bar"></span>
