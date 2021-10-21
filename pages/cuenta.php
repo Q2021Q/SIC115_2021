@@ -74,7 +74,7 @@ if ($result) {
         if (document.getElementById('codigocuenta').value.length==6) {
           document.getElementById('nivelcuenta').value=4;
         }
-        if (document.getElementById('codigocuenta').value.length8) {
+        if (document.getElementById('codigocuenta').value.length==8) {
           document.getElementById('nivelcuenta').value=5;
         }
       }
@@ -139,7 +139,7 @@ if ($result) {
                     </div>
                   </div>
               </div>
-              <form id="turismo" name="turismo" action="" method="post">
+              <form id="turismo" name="turismo" action="" method="get">
               <input type="hidden" name="bandera" id="bandera">
               <input type="hidden" name="baccion" id="baccion" value="<?php echo $idcatalogoR; ?>" >
               <input type="hidden" name="aux" id="aux" value="<?php echo $aux; ?>">
