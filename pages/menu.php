@@ -5,6 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 <!-- start:Left Menu -->
 <?php
 include "../config/conexion.php";
+$final = null;
 $result = $conexion->query("select * from anio where estado=1");
 if($result)
 {
