@@ -18,7 +18,7 @@ if ($opcion=="agregar") {
 		$cargo=null;
 	}
 	$acumulador=$_SESSION["acumulador"] ?? "";
-	$matriz=$_SESSION["matriz"] ?? "";
+	$matriz=$_SESSION["matriz"];
 	$acumulador++;
 	$matriz[$acumulador][0]=$idcatalogo;
 	$matriz[$acumulador][1]=$cargo;

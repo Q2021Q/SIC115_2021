@@ -74,10 +74,10 @@ xmlhttp.send();
 					</header>
 
 
-				<!-- Footer -->
+				<!-- Footer 
 					<footer id="footer">
 						<span class="copyright">&copy; Tarea Final SIC-115</span>
-					</footer>
+					</footer>-->
 
 			</div>
 		</div>

@@ -6,6 +6,17 @@ error_reporting(E_ALL & ~E_NOTICE);
 <?php
 session_start();
 $inventariofinal=$_REQUEST["if"];
+$saldoV = null;
+$saldoRDV = null;
+$saldoComp = null;
+$saldoGasComp = null;
+$saldoRDC = null;
+$saldoII = null;
+ $saldoGA = null;
+ $saldoGV = null;
+ $saldoGF = null;
+ $saldoOG = null;
+ $saldoOI = null;
 function mensaje($texto)
 {
     echo "<script type='text/javascript'>";
