@@ -4,8 +4,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 ?>
 <?php
 session_start();
-$inventariofinal=$_REQUEST["if"];
-//Variables utilizadas
+/*Variables utilizadas
 $anioActivo = null;
 $saldo = null;
 $IVA = null;
@@ -21,8 +20,9 @@ $saldoGA = null;
 $saldoGV = null;
 $saldoGF = null;
 $saldoOG = null;
-
+*/
 if($_SESSION["logueado"] == TRUE) {
+  $inventariofinal=$_REQUEST["if"];
   include '../config/conexion.php';
   $result = $conexion->query("select * from anio where estado=1");
   if($result)
@@ -42,7 +42,23 @@ if($_SESSION["logueado"] == TRUE) {
   if ($result2) {
     while ($fila = $result2->fetch_object()) {
       $fechaMaxima=$fila->fecha;
-      $fechaMaxima =date("d-m-Y",strtotime($fechaMaxima));
+      $fechaMaximaDia =date("d",strtotime($fechaMaxima));
+      $fechaMaximaMes = date("m",strtotime($fechaMaxima));
+      //Identificar mes de ultima partida registrada
+      switch($fechaMaximaMes){
+          case 1: $fechaMaximaMes = "Enero"; break;
+          case 2: $fechaMaximaMes = "Febrero"; break;
+          case 3: $fechaMaximaMes = "Marzo"; break;
+          case 4: $fechaMaximaMes = "Abril"; break;
+          case 5: $fechaMaximaMes = "Mayo"; break;
+          case 6: $fechaMaximaMes = "Junio"; break;
+          case 7: $fechaMaximaMes = "Julio"; break;
+          case 8: $fechaMaximaMes = "Agosto"; break;
+          case 9: $fechaMaximaMes = "Septiembre"; break;
+          case 10: $fechaMaximaMes = "Octubre"; break;
+          case 11: $fechaMaximaMes = "Noviembre"; break;
+          case 12: $fechaMaximaMes = "Diciembre"; break;
+      }
     }
   }
 
@@ -150,7 +166,7 @@ if($_SESSION["logueado"] == TRUE) {
                     <center>
                       <h3>Empresa Crisales</h3>
                       <h3>Balance General del periodo</h3>
-                      
+                      <h3>Al <?php echo $fechaMaximaDia." de ".$fechaMaximaMes." del ".$anioActivo?></h3>
                       <input type="hidden" name="anioActivo" id="anioActivo" value="<?php echo $anioActivo; ?>">
 
                       <input type="hidden" name="if" id="if" value="<?php echo $inventariofinal; ?>">
