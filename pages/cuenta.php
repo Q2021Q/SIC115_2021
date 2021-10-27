@@ -46,6 +46,10 @@ if ($result) {
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <script type="text/javascript">
+        window.onload = function(){
+          generarNivel();
+        }
+
       function comprobarR(cadena)
       {
         if (cadena.indexOf('r')!=-1 || cadena.indexOf('R')!=-1) {
@@ -172,75 +176,76 @@ if ($result) {
                                 <option value="ACTIVO" selected>ACTIVO</option>
                                 <option value="PASIVO">PASIVO</option>
                                 <option value="PATRIMONIO">PATRIMONIO</option>
+                                <option value="CRD">Cuenta de Resultados Deudora</option>
+                                <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                <option value="CL">Cuenta de Liquidacion</option>
                                 </select>';
                               }
                               if($tipocuentaR=="PASIVO"){
+                                echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
+                                <option value="SELECCIONE">SELECCIONE</option>
+                                <option value="ACTIVO">ACTIVO</option>
+                                <option value="PASIVO" selected>PASIVO</option>
+                                <option value="PATRIMONIO">PATRIMONIO</option>
+                                <option value="CRD">Cuenta de Resultados Deudora</option>
+                                <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                <option value="CL">Cuenta de Liquidacion</option>
+                                </select>';
+                              }
+                                if($tipocuentaR=="PATRIMONIO"){
                                   echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
                                   <option value="SELECCIONE">SELECCIONE</option>
                                   <option value="ACTIVO">ACTIVO</option>
-                                  <option value="PASIVO" selected>PASIVO</option>
-                                  <option value="PATRIMONIO">PATRIMONIO</option>
+                                  <option value="PASIVO">PASIVO</option>
+                                  <option value="PATRIMONIO" selected>PATRIMONIO</option>
+                                  <option value="CRD">Cuenta de Resultados Deudora</option>
+                                  <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                  <option value="CL">Cuenta de Liquidacion</option>
                                   </select>';
-                                }
-                                if($tipocuentaR=="PATRIMONIO"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO"selected>PATRIMONIO</option>
-                                    </select>';
                                   }
-                                if($tipocuentaR=="CUENTASRESULTDEUDORAS"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO">PATRIMONIO</option>
-                                    </select>';
+                                if($tipocuentaR=="CRD"){
+                                  echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
+                                  <option value="SELECCIONE">SELECCIONE</option>
+                                  <option value="ACTIVO">ACTIVO</option>
+                                  <option value="PASIVO">PASIVO</option>
+                                  <option value="PATRIMONIO">PATRIMONIO</option>
+                                  <option value="CRD" selected>Cuenta de Resultados Deudora</option>
+                                  <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                  <option value="CL">Cuenta de Liquidacion</option>
+                                  </select>';
                                   }
-                                if($tipocuentaR=="CUENTASRESULTACREEDO"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO">PATRIMONIO</option>
-                                    </select>';
+                                if($tipocuentaR=="CRA"){
+                                  echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
+                                  <option value="SELECCIONE">SELECCIONE</option>
+                                  <option value="ACTIVO">ACTIVO</option>
+                                  <option value="PASIVO">PASIVO</option>
+                                  <option value="PATRIMONIO">PATRIMONIO</option>
+                                  <option value="CRD">Cuenta de Resultados Deudora</option>
+                                  <option value="CRA" selected>Cuenta de Resultados Acreedora</option>
+                                  <option value="CL">Cuenta de Liquidacion</option>
+                                  </select>';
                                   }
-                                if($tipocuentaR=="CUENTASRESULTLIQUID"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO">PATRIMONIO</option>
-                                    </select>';
-                                  }
-                                if($tipocuentaR=="CUENTASCONTINGENTESO"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO">PATRIMONIO</option>
-                                    </select>';
-                                  }
-                                if($tipocuentaR=="CUENTASCONTINGENTESOC"){
-                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                    <option value="SELECCIONE">SELECCIONE</option>
-                                    <option value="ACTIVO" >ACTIVO</option>
-                                    <option value="PASIVO">PASIVO</option>
-                                    <option value="PATRIMONIO">PATRIMONIO</option>
-                                    </select>';
+                                if($tipocuentaR=="CL"){
+                                  echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
+                                  <option value="SELECCIONE">SELECCIONE</option>
+                                  <option value="ACTIVO">ACTIVO</option>
+                                  <option value="PASIVO">PASIVO</option>
+                                  <option value="PATRIMONIO">PATRIMONIO</option>
+                                  <option value="CRD">Cuenta de Resultados Deudora</option>
+                                  <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                  <option value="CL" selected>Cuenta de Liquidacion</option>
+                                  </select>';
                                   }
                                   if($tipocuentaR=="Ninguno")  {
-                                echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
-                                <option value="SELECCIONE" selected >SELECCIONE</option>
-                                <option value="ACTIVO" >ACTIVO</option>
-                                <option value="PASIVO">PASIVO</option>
-                                <option value="PATRIMONIO">PATRIMONIO</option>
-                                <option value="CUENTASRESULTDEUDORAS">CUENTA DE RESULTADO DEUDORA</option>
-                                <option value="PATRIMONIO">PATRIMONIO</option>
-                                <option value="PATRIMONIO">PATRIMONIO</option>
-                                <option value="PATRIMONIO">PATRIMONIO</option>
-                                </select>';
+                                    echo '<select id="tipocuenta" class="select2" style="width: 300px; font-size: 20px" name="tipocuenta">
+                                    <option value="SELECCIONE">SELECCIONE</option>
+                                    <option value="ACTIVO">ACTIVO</option>
+                                    <option value="PASIVO">PASIVO</option>
+                                    <option value="PATRIMONIO">PATRIMONIO</option>
+                                    <option value="CRD">Cuenta de Resultados Deudora</option>
+                                    <option value="CRA">Cuenta de Resultados Acreedora</option>
+                                    <option value="CL">Cuenta de Liquidacion</option>
+                                    </select>';
 
                               }
                               ?>
@@ -401,7 +406,7 @@ include "../config/conexion.php";
 
 $bandera      = $_REQUEST["bandera"] ?? "";
 $baccion      = $_REQUEST["baccion"] ?? "";
-$nivelcuenta  = $_REQUEST["nivelcuenta"] ?? "";
+$nivelcuenta  = $_REQUEST["nivelcuenta"];
 $nombrecuenta = $_REQUEST["nombrecuenta"] ?? "";
 $codigocuenta = $_REQUEST["codigocuenta"] ?? "";
 $tipocuenta   = $_REQUEST["tipocuenta"] ?? "";
@@ -433,12 +438,18 @@ if ($bandera == "desaparecer") {
     $resultado = $conexion->query($consulta);
     if ($resultado) {
         msg("Exito");
+        echo "<script type='text/javascript'>";
+        echo "document.location.href='cuenta.php';";
+        echo "</script>";
     } else {
         msg("No Exito");
+        echo "<script type='text/javascript'>";
+        echo "document.location.href='cuenta.php';";
+        echo "</script>";
     }
 }
 if ($bandera == "modificar") {
-    $consulta  = "UPDATE catalogo set codigocuenta='" . $codigocuenta . "',nombrecuenta='" . $nombrecuenta . "',tipocuenta='" . $tipocuenta . "',saldo='" . $saldocuenta . "',r='" . $r . "',nivel='" . $nivel . "' where idcatalogo='" . $baccion . "'";
+    $consulta  = "UPDATE catalogo set codigocuenta='" . $codigocuenta . "',nombrecuenta='" . $nombrecuenta . "',tipocuenta='" . $tipocuenta . "',saldo='" . $saldocuenta . "',r='" . $r . "',nivel='" . $nivelcuenta . "' where idcatalogo='" . $baccion . "'";
     $resultado = $conexion->query($consulta);
     if ($resultado) {
       echo "<script type='text/javascript'>";

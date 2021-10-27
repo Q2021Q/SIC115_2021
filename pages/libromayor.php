@@ -9,9 +9,11 @@ include "../config/conexion.php";
 $result = $conexion->query("select * from anio where estado=1");
 if($result)
 {
-  while ($fila=$result->fetch_object()) {
+  $fila = $result->fetch_object();
+  $anioActivo = $fila->idanio;
+  /*while ($fila=$result->fetch_object()) {
     $anioActivo=$fila->idanio;
-  }
+  }*/
 }
 $nivelMayorizacion=$_REQUEST["nivelMayorizacion"] ?? "";
 if (empty($nivelMayorizacion)) {
@@ -27,13 +29,10 @@ function mensaje($texto)
 
  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 
   <meta charset="utf-8">
-  <meta name="description" content="Miminium Admin Template v.1">
-  <meta name="author" content="Isna Nur Azis">
-  <meta name="keyword" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema Contable</title>
 
@@ -54,31 +53,12 @@ function mensaje($texto)
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <script type="text/javascript">
-        function enviar()
+        function nivelmayo()
         {
-          alert(document.getElementById("nivelCuenta").value);
+          //alert(document.getElementById("nivelCuenta").value);
           location.href ="libromayor.php?nivelMayorizacion="+document.getElementById("nivelCuenta").value;
         }
-        function modify(id)
-        {
-          //alert("entra");
-          document.getElementById('bandera').value='enviar';
-          document.getElementById('baccion').value=id;
-         document.turismo.submit();
-        }
-         function confirmar(id)
-        {
-          if (confirm("!!Advertencia!! Desea Eliminar Este Registro?")) {
-            document.getElementById('bandera').value='desaparecer';
-            document.getElementById('baccion').value=id;
-            alert(id);
-            document.turismo.submit();
-          }else
-          {
-            alert("No entra");
-          }
 
-        }
           //funcion para exportar la tabla del catalogo a excell
         function mayorExcell()
         {
@@ -86,11 +66,10 @@ function mensaje($texto)
           var anio=document.getElementById("anioActivo").value;
           const ventana = window.open("reportes/libromayorExcell.php?nivel="+nivel+"&anio="+anio+"","_blank");
           //window.setTimeout(cerrarVentana(ventana), 80000);
-
         }
-        function cerrarVentana(ventana){
+        /*function cerrarVentana(ventana){
           ventana.close();
-        }
+        }*/
         function mayorPDF()
         {
           var nivel=document.getElementById("nivel").value;
@@ -117,10 +96,9 @@ function mensaje($texto)
                         <p class="animated fadeInDown">
                           Nivel Para la mayorizacion.
                         </p>
-                        <select class="selectpicker" name="nivelCuenta" id="nivelCuenta" onchange="enviar()">
+                        <select class="selectpicker" name="nivelCuenta" id="nivelCuenta" onchange="nivelmayo()">
                           <option value="Seleccion">Seleccione</option>
                           <?php
-                          include "../config/conexion.php";
                           $result = $conexion->query("select nivel from catalogo group by nivel order by nivel ASC");
                           if ($result) {
                               while ($fila = $result->fetch_object()) {
@@ -165,7 +143,7 @@ function mensaje($texto)
                     //Agarrar las cuentas del catalogo de acuerdo al nivel seleccionaod
                     //si no se selecciona nivel, por defecto sera nivel 1
                     //inicio consulta por nivel
-                    include "../config/conexion.php";
+                    //include "../config/conexion.php";
                     $result = $conexion->query("select idcatalogo as id,saldo, nombrecuenta as nombre, codigocuenta as codigo from catalogo where nivel=".$nivelMayorizacion." order by codigocuenta");
                     if ($result) {
                         while ($fila = $result->fetch_object()) {
@@ -247,7 +225,7 @@ function mensaje($texto)
 </body>
 </html>
 <?php
-
+/*
 include "../config/conexion.php";
 
 $bandera = $_REQUEST["bandera"] ?? "";
@@ -282,7 +260,7 @@ function msg($texto)
     echo "alert('$texto');";
   //  echo "document.location.href='listacliente.php';";
     echo "</script>";
-}
+}*/
 }else {
 header("Location: ../index.php");
 }

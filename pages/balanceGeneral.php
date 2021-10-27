@@ -5,6 +5,23 @@ error_reporting(E_ALL & ~E_NOTICE);
 <?php
 session_start();
 $inventariofinal=$_REQUEST["if"];
+//Variables utilizadas
+$anioActivo = null;
+$saldo = null;
+$IVA = null;
+$saldoTotal = null;
+$saldoOI = null;
+$saldoV = null;
+$saldoRDV = null;
+$saldoComp = null;
+$saldoGasComp = null;
+$saldoRDC = null;
+$saldoII = null;
+$saldoGA = null;
+$saldoGV = null;
+$saldoGF = null;
+$saldoOG = null;
+
 if($_SESSION["logueado"] == TRUE) {
   include '../config/conexion.php';
   $result = $conexion->query("select * from anio where estado=1");
@@ -131,7 +148,8 @@ if($_SESSION["logueado"] == TRUE) {
                 <div class="panel">
                   <div class="panel-heading">
                     <center>
-                      <h3>Balance General del periodo.</h3>
+                      <h3>Empresa Crisales</h3>
+                      <h3>Balance General del periodo</h3>
                       
                       <input type="hidden" name="anioActivo" id="anioActivo" value="<?php echo $anioActivo; ?>">
 
