@@ -6,17 +6,6 @@ error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 if($_SESSION["logueado"] == TRUE) {
 $inventariofinal=$_REQUEST["if"];
-$saldoV = null;
-$saldoRDV = null;
-$saldoComp = null;
-$saldoGasComp = null;
-$saldoRDC = null;
-$saldoII = null;
- $saldoGA = null;
- $saldoGV = null;
- $saldoGF = null;
- $saldoOG = null;
- $saldoOI = null;
 function mensaje($texto)
 {
     echo "<script type='text/javascript'>";
@@ -146,7 +135,7 @@ if ($resulII) {
     <link href="../asset/css/style.css" rel="stylesheet">
     <!-- end: Css -->
 
-    <link rel="shortcut icon" href="../asset/img/logomi.png">
+    <link rel="shortcut icon" href="../asset/img/logomi.jpg">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

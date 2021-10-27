@@ -8,14 +8,14 @@
                 <span class="bottom"></span>
               </div>
                 <a href="main.php" class="navbar-brand">
-                 <b>SIC115</b>
+                 <b>Crisales</b>
                 </a>
 
 
               <ul class="nav navbar-nav navbar-right user-nav">
                 <li class="user-name"><span><?php echo $_SESSION['usuario']; ?></span></li>
                   <li class="dropdown avatar-dropdown">
-                   <img src="../asset/img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                   <img src="../asset/img/avatarcon.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                    <ul class="dropdown-menu user-dropdown">
                      <li><a href="#"><span class="fa fa-user"></span> Mi Perfil</a></li>
                      <li><a href="#"><span class="fa fa-calendar"></span> Mi calendario</a></li>

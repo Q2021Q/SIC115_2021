@@ -5,28 +5,29 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="utf-8">
-<meta name="description" content="Miminium Admin Template v.1">
-<meta name="author" content="Isna Nur Azis">
-<meta name="keyword" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sistema Contable</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Miminium Admin Template v.1">
+    <meta name="author" content="Isna Nur Azis">
+    <meta name="keyword" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Contable</title>
 
-<!-- start: Css -->
-<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
+    <!-- start: Css -->
+    <link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.min.css">
 
-<!-- plugins -->
-<link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css"/>
-<link rel="stylesheet" type="text/css" href="../asset/css/plugins/datatables.bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css"/>
-<link href="../asset/css/style.css" rel="stylesheet">
-<!-- end: Css -->
+    <!-- plugins -->
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/datatables.bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../asset/css/plugins/animate.min.css" />
+    <link href="../asset/css/style.css" rel="stylesheet">
+    <!-- end: Css -->
 
-<link rel="shortcut icon" href="../asset/img/logomi.png">
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
+    <link rel="shortcut icon" href="../asset/img/logomi.jpg">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -34,111 +35,114 @@ session_start();
 </head>
 
 <body id="mimin" class="dashboard">
-<?php include "header.php"?>
+    <?php include "header.php"?>
 
-<div class="container-fluid mimin-wrapper">
+    <div class="container-fluid mimin-wrapper">
 
-<?php include "menu.php";?>
-<div id="content">
-<div class="panel box-shadow-none content-header">
-<div class="panel-body">
-<div class="col-md-12">
-<h3 class="animated fadeInLeft">COSTEO</h3>
-<p class="animated fadeInDown">
-Tabla <span class="fa-angle-right fa"></span> Costeo
-</p>
-</div>
-</div>
-</div>
-<form action="costeo.php" method="post">
-<div class="col-md-12 top-10 padding-0">
-<div class="col-md-4">
-
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="unidadesIniciadasPeriodo" required>
-<span class="bar"></span>
-<label>Unidades iniciadas en el periodo</label>
-</div>
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="inventarioInicial" required>
-<span class="bar"></span>
-<label>Inventario inicial de productos en proceso</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="gradoInventarioInicial" required>
-<span class="bar"></span>
-<label>Grado de avance del inventario inicial</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="inventarioFinal" required>
-<span class="bar"></span>
-<label>Inventario final de productos en proceso</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="gradoInventarioFinal" required>
-<span class="bar"></span>
-<label>Grado de avance del inventario Final</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="materiaPrima"  required>
-<span class="bar"></span>
-<label>Materia prima utilizada</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="costosConversion" required>
-<span class="bar"></span>
-<label>Costos de conversion</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text"  name="costosMateriaPrima" required>
-<span class="bar"></span>
-<label>Costos de materia prima del Inventario inicial</label>
-</div>
-
-<div class="form-group form-animate-text" style="margin-top:1px !important;">
-<input type="text" class="form-text" name="costosConversionInventarioInicial" required>
-<span class="bar"></span>
-<label>Costos de Conversion del Inventario inicial</label>
-</div>
+        <?php include "menu.php";?>
+        <div id="content">
+            <div class="panel box-shadow-none content-header">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <h3 class="animated fadeInLeft">COSTEO</h3>
+                        <p class="animated fadeInDown">
+                            Tabla <span class="fa-angle-right fa"></span> Costeo
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <form action="costeo.php" method="post">
+                <div class="col-md-12 top-10 padding-0">
+                    <div class="col-md-4">
 
 
-<div class="col-md-3">
-<button type="submit" class="btn-flip btn btn-gradient btn-primary">
-<div class="flip">
-<div class="side">
-Generar costeo <span class="fa fa-floppy-o"></span>
-</div>
-<div class="side back">
-continuar?
-</div>
-</div>
-<span class="icon"></span>
-</button>
-</div>
-</div>
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="unidadesIniciadasPeriodo" required>
+                            <span class="bar"></span>
+                            <label>Unidades iniciadas en el periodo</label>
+                        </div>
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="inventarioInicial" required>
+                            <span class="bar"></span>
+                            <label>Inventario inicial de productos en proceso</label>
+                        </div>
 
-<div class="col-md-8">
-<div class="col-md-12">
-<div class="panel">
-<div class="panel-heading"><h3>Cédula de unidades físicas</h3></div>
-<div class="panel-body">
-<div class="responsive-table">
-<table class="table table-striped table-bordered table-dark" width="100%" cellspacing="0">
-<thead >
-<tr>
-<th>Descripcion</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<?php
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="gradoInventarioInicial" required>
+                            <span class="bar"></span>
+                            <label>Grado de avance del inventario inicial</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="inventarioFinal" required>
+                            <span class="bar"></span>
+                            <label>Inventario final de productos en proceso</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="gradoInventarioFinal" required>
+                            <span class="bar"></span>
+                            <label>Grado de avance del inventario Final</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="materiaPrima" required>
+                            <span class="bar"></span>
+                            <label>Materia prima utilizada</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="costosConversion" required>
+                            <span class="bar"></span>
+                            <label>Costos de conversion</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="costosMateriaPrima" required>
+                            <span class="bar"></span>
+                            <label>Costos de materia prima del Inventario inicial</label>
+                        </div>
+
+                        <div class="form-group form-animate-text" style="margin-top:1px !important;">
+                            <input type="text" class="form-text" name="costosConversionInventarioInicial" required>
+                            <span class="bar"></span>
+                            <label>Costos de Conversion del Inventario inicial</label>
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <button type="submit" class="btn-flip btn btn-gradient btn-primary">
+                                <div class="flip">
+                                    <div class="side">
+                                        Generar costeo <span class="fa fa-floppy-o"></span>
+                                    </div>
+                                    <div class="side back">
+                                        continuar?
+                                    </div>
+                                </div>
+                                <span class="icon"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3>Cédula de unidades físicas</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="responsive-table">
+                                        <table class="table table-striped table-bordered table-dark" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descripcion</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
 
 $unidadesIniciadasPeriodo  = $_POST['unidadesIniciadasPeriodo'] ?? 0;
 $inventarioInicial = $_POST['inventarioInicial'] ?? 0;
@@ -261,35 +265,38 @@ echo "</tr>";
 
 
 ?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-                  
-                  
-                  
-                  
-<div class="col-md-8">
-<div class="col-md-12">
-<div class="panel">
-<div class="panel-heading"><h3>Cédula de unidades Equivalentes</h3></div>
-<div class="panel-body">
-<div class="responsive-table">
-<table class="table table-striped table-bordered table-dark" width="100%" cellspacing="0">
-<thead >
-<tr>
-<th>Descripcion</th>
-<th>Unidades de materia prima (MP)</th>
-<th>Unidades de costos de conversión (COCO)</th>
-</tr>
-</thead>
-<tbody>
-<?php
+
+
+
+
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3>Cédula de unidades Equivalentes</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="responsive-table">
+                                        <table class="table table-striped table-bordered table-dark" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descripcion</th>
+                                                    <th>Unidades de materia prima (MP)</th>
+                                                    <th>Unidades de costos de conversión (COCO)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
 
 
 echo "<tr>";
@@ -325,40 +332,43 @@ echo "</tr>";
 
 
 ?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="col-md-8">
-<div class="col-md-12">
-<div class="panel">
-<div class="panel-heading"><h3>Cédula de Asignacion de Costos</h3></div>
-<div class="panel-body">
-<div class="responsive-table">
-<table class="table table-striped table-bordered table-dark" width="100%" cellspacing="0">
-<thead >
-<tr>
-<th>Descripcion</th>
-<th colspan="3">Materia Prima</th>
-<th colspan="3">COCO</th>
-<th rowspan="2">Total</th>
-</tr> 
-<tr>
-<th>Cédula de asignacion de costos CPP</th>
-<th>Unidades</th>
-<th>CMP($)</th>
-<th>PU</th>
-<th>Unidades</th>
-<th>COCO($)</th>
-<th>PU</th>
-</tr>
-</thead>
-<tbody>
-<?php
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3>Cédula de Asignacion de Costos</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="responsive-table">
+                                        <table class="table table-striped table-bordered table-dark" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descripcion</th>
+                                                    <th colspan="3">Materia Prima</th>
+                                                    <th colspan="3">COCO</th>
+                                                    <th rowspan="2">Total</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Cédula de asignacion de costos CPP</th>
+                                                    <th>Unidades</th>
+                                                    <th>CMP($)</th>
+                                                    <th>PU</th>
+                                                    <th>Unidades</th>
+                                                    <th>COCO($)</th>
+                                                    <th>PU</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
 
 echo "<tr>";
 echo "<td>Unidades Iniciadas</td>";
@@ -418,30 +428,33 @@ echo "</tr>";
 
 
 ?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-<div class="col-md-12" >
-<div class="col-md-12">
-<div class="panel" >
-<div class="panel-heading"><h3>Producto FINAL</h3></div>
-<div class="panel-body">
-<div class="responsive-table">
-<table class="table table-striped table-bordered table-dark" width="100%" cellspacing="0">
-<thead >
-<tr>
-<th>Descripcion</th>
-<th>Valor</th>
-</tr>
-</thead>
-<tbody>
-<?php
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3>Producto FINAL</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="responsive-table">
+                                        <table class="table table-striped table-bordered table-dark" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Descripcion</th>
+                                                    <th>Valor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
 
 
 echo "<tr>";
@@ -455,23 +468,23 @@ echo "<td>". $precioUnitario ."</td>";
 echo "</tr>";
 
 ?>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-</form>
-</div>
-<!-- end: content -->
+            </form>
+        </div>
+        <!-- end: content -->
 
 
-<!-- end: right menu -->
+        <!-- end: right menu -->
 
-</div>
+    </div>
 </body>
 
 <!-- start: Javascript -->
@@ -491,8 +504,8 @@ echo "</tr>";
 <!-- custom -->
 <script src="../asset/js/main.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-  $('#datatables-example').DataTable();
+$(document).ready(function() {
+    $('#datatables-example').DataTable();
 });
 </script>
 <!-- end: Javascript -->
