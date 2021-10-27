@@ -193,16 +193,16 @@ if ($resultIVA) {
 
       }
   }
-echo "<tr class='danger'>";
+echo "<tr class='bg-danger'>";
 echo "<td colspan='2' align='center'>ACTIVO</td>";
 echo "</tr>";
-echo "<tr class='info'>";
+echo "<tr class='bg-info'>";
 echo "<td colspan='2' align='center'>ACTIVO CORRIENTE</td>";
 echo "</tr>";
 $result = $conexion->query("select c.nombrecuenta as nombre,c.idcatalogo as id, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','2') as codigocorto FROM catalogo as c where SUBSTRING(c.codigocuenta,1,'2')='11' and c.codigocuenta!='118' and c.nivel='3' ORDER BY c.codigocuenta ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       echo "<td  align='left'>".$fila->nombre."</td>";
       $codigo=$fila->codigo;
       $loncadena=strlen($codigo);
@@ -222,17 +222,17 @@ if ($result) {
       }
 
   }
-  echo "<tr class='success'>";
+  echo "<tr class='bg-success'>";
   echo "<td  align='left'>Inventario Final</td>";
   echo "<td  align='center'> $  ".$inventariofinal."</td>";
     echo "</tr>";
-  echo "<tr class='success'>";
+  echo "<tr class='bg-success'>";
   echo "<td  align='left'>IVA CREDITO:</td>";
   echo "<td  align='center'> $  ".$IVA."</td>";
 
     echo "</tr>";
 
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL ACTIVO CORRIENTE:</td>";
   echo "<td align='right'>$ ".($saldoTotal+$inventariofinal+$IVA)."</td>";
   echo "</tr>";
@@ -243,13 +243,13 @@ if ($result) {
 // echo "<tr class='danger'>";
 // echo "<td colspan='2' align='center'>ACTIVO</td>";
 // echo "</tr>";
-echo "<tr class='info'>";
+echo "<tr class='bg-info'>";
 echo "<td colspan='2' align='center'>ACTIVO NO CORRIENTE</td>";
 echo "</tr>";
 $result = $conexion->query("select c.nombrecuenta as nombre,c.idcatalogo as id, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','2') as codigocorto FROM catalogo as c where SUBSTRING(c.codigocuenta,1,'2')='13' and c.nivel='3' ORDER BY c.codigocuenta ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       echo "<td  align='left'>".$fila->nombre."</td>";
       $codigo=$fila->codigo;
       $loncadena=strlen($codigo);
@@ -268,12 +268,12 @@ if ($result) {
         $saldo=0;
       }
   }
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL ACTIVO NO CORRIENTE:</td>";
   echo "<td align='right'>$ ".$saldoTotal."</td>";
   echo "</tr>";
   $ANC=$saldoTotal;
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL ACTIVO :</td>";
   echo "<td align='right'>$ ".($AC+$ANC)."</td>";
   echo "</tr>";
@@ -360,16 +360,16 @@ if ($resulII) {
       }
 }
 //PASIVO
-echo "<tr class='danger'>";
+echo "<tr class='bg-danger'>";
 echo "<td colspan='2' align='center'>PASIVO</td>";
 echo "</tr>";
-echo "<tr class='info'>";
+echo "<tr class='bg-info'>";
 echo "<td colspan='2' align='center'>PASIVO CORRIENTE</td>";
 echo "</tr>";
 $result = $conexion->query("select c.nombrecuenta as nombre,c.idcatalogo as id, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','2') as codigocorto FROM catalogo as c where SUBSTRING(c.codigocuenta,1,'2')='21' and c.nivel='3' ORDER BY c.codigocuenta ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       echo "<td  align='left'>".$fila->nombre."</td>";
       $codigo=$fila->codigo;
       $loncadena=strlen($codigo);
@@ -392,11 +392,11 @@ if ($result) {
   $RL=($UAIR*0.07);
   $UAIR-$RL;
   $ISR=($UAIR-$RL)*0.30;
-  echo "<tr class='success'>";
+  echo "<tr class='bg-success'>";
   echo "<td align='left'>Impuesto Sobre la Renta</td>";
   echo "<td align='right'> $  ".$ISR."</td>";
   echo "</tr>";
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL PASIVO CORRIENTE:</td>";
   echo "<td align='right'> $  ".($saldoTotal+$ISR)."</td>";
   echo "</tr>";
@@ -404,13 +404,13 @@ if ($result) {
   $saldoTotal=0;
 }
 //Pasivo no corriente
-echo "<tr class='info'>";
+echo "<tr class='bg-info'>";
 echo "<td colspan='2' align='center'>PASIVO NO CORRIENTE</td>";
 echo "</tr>";
 $result = $conexion->query("select c.nombrecuenta as nombre,c.idcatalogo as id, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','2') as codigocorto FROM catalogo as c where SUBSTRING(c.codigocuenta,1,'2')='22' and c.nivel='3' ORDER BY c.codigocuenta ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       echo "<td  align='left'>".$fila->nombre."</td>";
       $codigo=$fila->codigo;
       $loncadena=strlen($codigo);
@@ -429,12 +429,12 @@ if ($result) {
         $saldo=0;
       }
   }
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL PASIVO NO CORRIENTE:</td>";
   echo "<td align='right'> $ ".$saldoTotal."</td>";
   echo "</tr>";
   $PNC=$saldoTotal;
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL PASIVO:</td>";
   echo "<td align='right'>$ ".($PNC+$PC)."</td>";
   echo "</tr>";
@@ -442,14 +442,14 @@ if ($result) {
   $saldoTotal=0;
 }
 // PATRIMONO
-echo "<tr class='danger'>";
+echo "<tr class='bg-danger'>";
 echo "<td colspan='2' align='center'>PATRIMONIO</td>";
 echo "</tr>";
 
 $result = $conexion->query("select c.nombrecuenta as nombre,c.idcatalogo as id, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','2') as codigocorto FROM catalogo as c where SUBSTRING(c.codigocuenta,1,'2')='31' and c.nivel='3' ORDER BY c.codigocuenta ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       echo "<td  align='left'>".$fila->nombre."</td>";
       $codigo=$fila->codigo;
       $loncadena=strlen($codigo);
@@ -469,24 +469,24 @@ if ($result) {
       }
   }
 
-  echo "<tr class='success'>";
+  echo "<tr class='bg-success'>";
   echo "<td  align='left'>Reserva Legal</td>";
   $UAIR=(((($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF))-$saldoOG)+$saldoOI;
   $RL=($UAIR*0.07);
   echo "<td  align='center'> $ ".$RL."</td>";
   echo "</tr>";
-  echo "<tr class='success'>";
+  echo "<tr class='bg-success'>";
   echo "<td  align='left'>Utilidad del Ejercicio</td>";
   $UAIR-$RL;
   $ISR=($UAIR-$RL)*0.30;
   $UE=($UAIR-$RL)-$ISR;
   echo "<td  align='center'> $ ".$UE."</td>";
   echo "</tr>";
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL PATRIMONIO:</td>";
   echo "<td align='right'> $  ".($saldoTotal+$RL+$UE)."</td>";
   echo "</tr>";
-  echo "<tr class='warning'>";
+  echo "<tr class='bg-warning'>";
   echo "<td align='center'>TOTAL PASIVO+PATRIMONIO:</td>";
   echo "<td align='right'> $  ".(($saldoTotal+$RL+$UE)+$tp)."</td>";
   echo "</tr>";

@@ -4,6 +4,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 ?>
 <?php
 session_start();
+
 if($_SESSION["logueado"] == TRUE) {
 include "../config/conexion.php";
 $result = $conexion->query("select * from anio where estado=1");
@@ -15,10 +16,11 @@ if($result)
     $anioActivo=$fila->idanio;
   }*/
 }
+/*
 $nivelMayorizacion=$_REQUEST["nivelMayorizacion"] ?? "";
 if (empty($nivelMayorizacion)) {
   $nivelMayorizacion=1;
-}
+}*/
 function mensaje($texto)
 {
     echo "<script type='text/javascript'>";
@@ -53,11 +55,11 @@ function mensaje($texto)
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
       <script type="text/javascript">
-        function nivelmayo()
+        /*function nivelmayo()
         {
           //alert(document.getElementById("nivelCuenta").value);
           location.href ="libromayor.php?nivelMayorizacion="+document.getElementById("nivelCuenta").value;
-        }
+        }*/
 
           //funcion para exportar la tabla del catalogo a excell
         function mayorExcell()
@@ -93,20 +95,22 @@ function mensaje($texto)
                   <div class="panel-body">
                     <div class="col-md-12">
                         <h3 class="animated fadeInLeft">Libro Mayor</h3>
+                        <!--
                         <p class="animated fadeInDown">
                           Nivel Para la mayorizacion.
                         </p>
                         <select class="selectpicker" name="nivelCuenta" id="nivelCuenta" onchange="nivelmayo()">
                           <option value="Seleccion">Seleccione</option>
                           <?php
-                          $result = $conexion->query("select nivel from catalogo group by nivel order by nivel ASC");
+                          /*$result = $conexion->query("select nivel from catalogo group by nivel order by nivel ASC");
                           if ($result) {
                               while ($fila = $result->fetch_object()) {
                                 echo "<option value='".$fila->nivel."'>".$fila->nivel."</option>";
                               }
-                            }
+                            }*/
                            ?>
                         </select>
+                          -->
                     </div>
                   </div>
               </div>
@@ -120,9 +124,9 @@ function mensaje($texto)
                   <div class="panel-heading">
                     <center>
                       <h3>Libro Mayor</h3>
-                      <h4>Mayorizacion de Nivel <?php echo $nivelMayorizacion; ?></h4>
+                      <!--<h4>Mayorizacion de Nivel <?php // echo $nivelMayorizacion; ?></h4>
                       <input type="hidden" name="anioActivo" id="anioActivo" value="<?php echo $anioActivo; ?>">
-                      <input type="hidden" name="nivel" id="nivel" value="<?php echo $nivelMayorizacion; ?>">
+                      <input type="hidden" name="nivel" id="nivel" value="<?php //echo $nivelMayorizacion; ?>">-->
                     </center>
                   </div>
                   <div class="panel-body">
@@ -144,34 +148,37 @@ function mensaje($texto)
                     //si no se selecciona nivel, por defecto sera nivel 1
                     //inicio consulta por nivel
                     //include "../config/conexion.php";
-                    $result = $conexion->query("select idcatalogo as id,saldo, nombrecuenta as nombre, codigocuenta as codigo from catalogo where nivel=".$nivelMayorizacion." order by codigocuenta");
+                    $saldo=0;
+                    $result = $conexion->query("select idcatalogo as id,saldo, nombrecuenta as nombre, codigocuenta as codigo from catalogo where nivel=3 order by codigocuenta asc");
                     if ($result) {
                         while ($fila = $result->fetch_object()) {
                           $nombre=$fila->nombre;
                           $id=$fila->id;
                           $codigo=$fila->codigo;
                           //obtener total de caracteres del codigo segun el nivelcuenta
-                          $loncadena=strlen($codigo);
+                          //$loncadena=strlen($codigo);
                           //inicio de la consulta para encontrar las cuentas que son subcuentas de la cuenta anterior
-                          $resultSubcuenta= $conexion->query("select c.nombrecuenta as nombre, c.codigocuenta as codigo, SUBSTRING(c.codigocuenta,'1','".$loncadena."') as codigocorto, p.idpartida as npartida, p.concepto as concepto, p.fecha as fecha, l.debe as debe, l.haber as haber FROM catalogo as c,partida as p, ldiario as l where SUBSTRING(c.codigocuenta,1,'".$loncadena."')='".$codigo."' and p.idpartida=l.idpartida and l.idcatalogo=c.idcatalogo and p.idanio='".$anioActivo."' ORDER BY p.idpartida ASC");
+                          $resultSubcuenta= $conexion->query("Select c.nombrecuenta as nombre, c.codigocuenta as codigo, p.idpartida as npartida, p.concepto, p.fecha as fecha, l.debe as debe, l.haber as haber FROM catalogo c INNER JOIN ldiario l ON c.idcatalogo = l.idcatalogo INNER JOIN partida p ON l.idpartida = p.idpartida WHERE  SUBSTRING(c.codigocuenta, 1,4) = '".$codigo."' AND p.idanio='".$anioActivo."' ORDER BY fecha ASC");
                           if ($resultSubcuenta) {
                               if (($resultSubcuenta->num_rows)<1) {
                             }else {
-                              echo "<tr><td class='success' colspan='6' align='center'>".$nombre."</td></tr>";
+                              echo "<tr>
+                              <td class='bg-success' colspan='1'>Cuenta ".$codigo."</td>      
+                              <td class='bg-success' colspan='5' align='center'>".$nombre."</td></tr>";
                               while ($fila2 = $resultSubcuenta->fetch_object()) {
                                 echo "<tr>";
                                 echo "<td>".$fila2->fecha."</td>";
                                 echo "<td>".$fila2->concepto."</td>";
                                 echo "<td>".$fila2->npartida."</td>";
-                                echo "<td class='info'>".$fila2->debe."</td>";
-                                echo "<td class='danger'>".$fila2->haber."</td>";
+                                echo "<td class='bg-info'>".$fila2->debe."</td>";
+                                echo "<td class='bg-danger'>".$fila2->haber."</td>";
                                 if ($fila->saldo=="DEUDOR") {
                                   $saldo=$saldo+($fila2->debe)-($fila2->haber);
                                 }else {
                                   $saldo=$saldo-($fila2->debe)+($fila2->haber);
                                 }
 
-                                echo "<td class='warning'>".$saldo."</td>";
+                                echo "<td class='bg-warning'>".$saldo."</td>";
                                 echo "</tr>";
                               }
                               $saldo=0;
