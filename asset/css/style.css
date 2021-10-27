@@ -117,7 +117,7 @@ p.quote{
 /*background*/
  .bg-none    {background: none !important;}
  .bg-primary {background-color: #1c84c6 !important;}
- .bg-success {background-color: #27C24C !important;}
+ .bg-success {background-color: #75B798 !important;}
  .bg-info    {background-color: #73CAEF !important;}
  .bg-danger  {background-color: #FEC8C3 !important;}
  .bg-warning {background-color: #F0AD4E !important;}
@@ -917,19 +917,19 @@ ul li a:focus {
 }
 
 .bg-success {
-  background-color: #27C24C !important;
+  background-color: #75B798 !important;
 }
 
 .bg-info {
-  background-color: #73CAEF !important;
+  background-color: #9EC5FE !important;
 }
 
 .bg-danger {
-  background-color: #FF6656 !important;
+  background-color: #F1AEB5 !important;
 }
 
 .bg-warning {
-  background-color: #F0AD4E !important;
+  background-color: #FFDA6A !important;
 }
 
 .bg-default {
@@ -2693,7 +2693,7 @@ ul li a:focus {
   padding-bottom: 10px;
   padding-left: 230px;
   width: 100%;
-  color: #918C8C;
+  color: #343A40;
 }
 
 

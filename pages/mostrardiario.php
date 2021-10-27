@@ -124,7 +124,7 @@ if($_SESSION["logueado"] == TRUE) {
 $result = $conexion->query("select * from partida where idanio='".$anioActivo."' order by idpartida ASC");
 if ($result) {
   while ($fila = $result->fetch_object()) {
-      echo "<tr class='success'>";
+      echo "<tr class='bg-success'>";
       //echo "<tr>";
       //echo "<td><img src='img/modificar.png' style='width:30px; height:30px' onclick=modify(".$fila->idasignatura.",'".$fila->codigo."','".$fila->nombre."');></td>";
       //echo "<td><img src='img/eliminar.png' style='width:30px; height:30px' onclick=elyminar(".$fila->idasignatura.",'".$fila->nombre."');></td>";
@@ -161,14 +161,14 @@ if ($result) {
                   echo "<td align='center'>" . $nombrecuenta . "</td>";
                 }
                 if ($debe==0) {
-                    echo "<td align='center' class='info'>--</td>";
+                    echo "<td align='center' class='bg-info'>--</td>";
                 }else {
-                  echo "<td align='left' class='info'>$ " . $debe . "</td>";
+                  echo "<td align='left' class='bg-info'>$ " . $debe . "</td>";
                 }
                 if ($haber==0) {
-                    echo "<td align='center' class='danger'>--</td>";
+                    echo "<td align='center' class='bg-danger'>--</td>";
                 }else {
-                  echo "<td align='left' class='danger'>$ " . $haber . "</td>";
+                  echo "<td align='left' class='bg-danger'>$ " . $haber . "</td>";
                 }
 
 
@@ -177,7 +177,7 @@ if ($result) {
           }
         }
       }
-      echo "<tr class='warning'>";
+      echo "<tr class='bg-warning'>";
       echo "<td> </td>";
       echo "<td> </td>";
       echo "<td align='center' >V/ ".$fila->concepto."</td>";
