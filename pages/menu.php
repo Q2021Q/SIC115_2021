@@ -11,6 +11,7 @@ if($result)
 {
   while ($fila=$result->fetch_object()) {
     $anioActivo=$fila->idanio;
+    $final = $fila->inventariof;
   }
 }
  ?>
@@ -114,25 +115,11 @@ function ir3() {
                     <li><a href="libromayor.php">Libro Mayor</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
-                    <?php
-                          include "../config/conexion.php";
-                          $result = $conexion->query("select * from anio where estado=1");
-                          if($result)
-                          {
-                            while ($fila=$result->fetch_object()) {
-                              $final=$fila->inventariof;
-                            }
-                          }
-                          if ($final>-1) {
-                            echo "<li><a  onclick='cerrado();'>Estado de Resultados</a></li>";
-                          }else {
-                            echo "<li><a  onclick='inventarioFinal();'>Estado de Resultados</a></li>";
-                          }
-                           ?>
-
+                <li><a href="estado.php">Estado de Resultados</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
                     <?php
+                    /*
                         include "../config/conexion.php";
                         $result = $conexion->query("select * from anio where estado=1");
                         if($result)
@@ -141,6 +128,7 @@ function ir3() {
                             $final=$fila->inventariof;
                           }
                         }
+                    */
                         if ($final>-1) {
                           echo "<li><a  onclick=cerrado2();>Balance General</a></li>";
                         }else {
