@@ -16,7 +16,7 @@ if($result)
 }
  ?>
 <script type="text/javascript">
-function inventarioFinal() {
+/*function inventarioFinal() {
     $('#myModalE').modal('show');
 }
 
@@ -27,7 +27,7 @@ function noir() {
 
 function ir() {
     document.location.href = "estado.php?if=" + document.getElementById("inventarioFinal").value;
-}
+}*/
 
 function inventarioFinal2() {
     $('#myModalB').modal('show');
