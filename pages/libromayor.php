@@ -84,7 +84,11 @@ function mensaje($texto)
 </head>
 
 <body id="mimin" class="dashboard">
-      <?php include "header.php"?>
+       <?php include "header.php"?>
+          <div class="col-md-12 nav-wrapper">
+              <li><a href="">Inicio</a></li>
+              <li><a href="">Servicios</a>
+          </div>
 
       <div class="container-fluid mimin-wrapper">
 

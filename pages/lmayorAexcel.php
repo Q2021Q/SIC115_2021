@@ -65,7 +65,7 @@ if($result)
 
                                 echo <<< END
                                 <td class='bg-success' colspan='3' align='CENTER'>Cuenta $codigo</td>      
-                                <td class='bg-success' colspan='3' align='LEFT'>$nombre</td></tr>
+                                <td class='bg-success' colspan='5' align='LEFT'>$nombre</td></tr>
                                 END;
 
                                 echo "<tr>
