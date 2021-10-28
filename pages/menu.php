@@ -132,7 +132,7 @@ function ir3() {
                         if ($final>-1) {
                           echo "<li><a  onclick=cerrado2();>Balance General</a></li>";
                         }else {
-                          echo "<li><a  onclick='inventarioFinal2();'>Balance General</a></li>";
+                          echo "<li><a  href='balanceGeneral.php';'>Balance General</a></li>";
                         }
                          ?>
 
