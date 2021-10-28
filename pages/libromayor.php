@@ -134,9 +134,8 @@ function mensaje($texto)
                     <table id="datatables-example" class="table table-striped table-bordered table-hover " width="100%" cellspacing="0">
                     <thead>
                       <tr>
-                      <th style="width:73px;" >Fecha</th>
-                        <th>Concepto</th>
-                        <th style="width:73px;" >P/F</th>
+                      <th style="width:125px;" >Concepto</th>
+                        <th>Fecha</th>
                         <th>Debe</th>
                         <th>Haber</th>
                         <th >Saldo</th>
@@ -158,10 +157,73 @@ function mensaje($texto)
                           //obtener total de caracteres del codigo segun el nivelcuenta
                           //$loncadena=strlen($codigo);
                           //inicio de la consulta para encontrar las cuentas que son subcuentas de la cuenta anterior
-                          $resultSubcuenta= $conexion->query("Select c.nombrecuenta as nombre, c.codigocuenta as codigo, p.idpartida as npartida, p.concepto, p.fecha as fecha, l.debe as debe, l.haber as haber FROM catalogo c INNER JOIN ldiario l ON c.idcatalogo = l.idcatalogo INNER JOIN partida p ON l.idpartida = p.idpartida WHERE  SUBSTRING(c.codigocuenta, 1,4) = '".$codigo."' AND p.idanio='".$anioActivo."' ORDER BY fecha ASC");
+                          $resultSubcuenta= $conexion->query("Select c.nombrecuenta as nombre, c.codigocuenta as codigo, C.saldo as saldo, p.idpartida as npartida, p.concepto, p.fecha as fecha, l.debe as debe, l.haber as haber FROM catalogo c INNER JOIN ldiario l ON c.idcatalogo = l.idcatalogo INNER JOIN partida p ON l.idpartida = p.idpartida WHERE  SUBSTRING(c.codigocuenta, 1,4) = '".$codigo."' AND p.idanio='".$anioActivo."' ORDER BY fecha ASC");
                           if ($resultSubcuenta) {
-                              if (($resultSubcuenta->num_rows)<1) {
+                              if (($resultSubcuenta->num_rows)>0) {
+                                echo <<< END
+                                <td class='bg-success' colspan='1'>Cuenta $codigo</td>      
+                                <td class='bg-success' colspan='5' align='center'>$nombre</td></tr>
+                                END;
+                                $fecha = '0000-00-00';
+                                $debe_sub = 0;
+                                $haber_sub = 0;
+                                $saldofinal = 0;
+
+                                $subcuenta = $resultSubcuenta->fetch_object();
+                                
+                                //Almacenando primer objeto de la consulta
+                                $fecha = $subcuenta->fecha;
+                                $debe_sub = $subcuenta->debe;
+                                $haber_sub = $subcuenta->haber;
+                                if($subcuenta->saldo == "DEUDOR"){
+                                  $saldofinal = $saldofinal + ($subcuenta->debe)-($subcuenta->haber);
+                                }else{
+                                  $saldofinal = $saldofinal - ($subcuenta->debe)+($subcuenta->haber);
+                                }
+                                
+                                while ($subcuenta = $resultSubcuenta->fetch_object()){
+                                  if ($fecha == $subcuenta->fecha){
+                                    $debe_sub = $debe_sub + $subcuenta->debe;
+                                    $haber_sub = $haber_sub + $subcuenta->haber;
+                                    if($subcuenta->saldo == "DEUDOR"){
+                                      $saldofinal = $saldofinal + ($subcuenta->debe)-($subcuenta->haber);
+                                    }else{
+                                      $saldofinal = $saldofinal - ($subcuenta->debe)+($subcuenta->haber);
+                                    }
+                                  }else{
+                                    echo <<< END
+                                    <tr>
+                                    <td>Movimiento del día</td>
+                                    <td>$fecha</td>
+                                    <td class='bg-info'>$debe_sub</td>
+                                    <td class='bg-danger'>$haber_sub</td>
+                                    <td class='bg-warning'>$saldofinal</td>
+                                    </tr>
+                                    END;
+
+                                    $debe_sub = $subcuenta->debe;
+                                    $haber_sub = $subcuenta->haber;
+                                    if($subcuenta->saldo == "DEUDOR"){
+                                      $saldofinal = $saldofinal + ($subcuenta->debe)-($subcuenta->haber);
+                                    }else{
+                                      $saldofinal = $saldofinal - ($subcuenta->debe)+($subcuenta->haber);
+                                    }
+                                    $fecha = $subcuenta->fecha;
+                                  }
+                                }
+
+                                echo <<< END
+                                    <tr>
+                                    <td>Movimiento del día</td>
+                                    <td>$fecha</td>
+                                    <td class='bg-info'>$debe_sub</td>
+                                    <td class='bg-danger'>$haber_sub</td>
+                                    <td class='bg-warning'>$saldofinal</td>
+                                    </tr>
+                                    END;
+
                             }else {
+                              /*
                               echo "<tr>
                               <td class='bg-success' colspan='1'>Cuenta ".$codigo."</td>      
                               <td class='bg-success' colspan='5' align='center'>".$nombre."</td></tr>";
@@ -180,7 +242,8 @@ function mensaje($texto)
 
                                 echo "<td class='bg-warning'>".$saldo."</td>";
                                 echo "</tr>";
-                              }
+                                
+                              }*/
                               $saldo=0;
                             }
                           }else {
