@@ -27,7 +27,7 @@ function noir() {
 
 function ir() {
     document.location.href = "estado.php?if=" + document.getElementById("inventarioFinal").value;
-}*/
+}
 
 function inventarioFinal2() {
     $('#myModalB').modal('show');
@@ -40,7 +40,7 @@ function noir2() {
 
 function ir2() {
     document.location.href = "balanceGeneral.php?if=" + document.getElementById("inventarioFinal2").value;
-}
+}*/
 
 function cerrado() {
     alert("Este anio ya esta cerrado.")
