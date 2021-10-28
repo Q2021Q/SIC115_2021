@@ -118,10 +118,13 @@ function mensaje($texto)
               <input type="hidden" name="bandera" id="bandera">
               <input type="hidden" name="baccion" id="baccion">
 
+
+
               <div class="col-md-12 top-20 padding-0">
                 <div class="col-md-12">
                 <div class="panel">
                   <div class="panel-heading">
+                     <a href="./lmayorAexcel.php">Descargar Excel</a>
                     <center>
                       <h3>Libro Mayor</h3>
                       <!--<h4>Mayorizacion de Nivel <?php // echo $nivelMayorizacion; ?></h4>
