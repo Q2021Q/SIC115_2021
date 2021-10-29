@@ -194,15 +194,14 @@ if ($resulII) {
                 <div class="col-md-12">
                     <div class="panel">
                         <div class="panel-heading">
-                              <?php
+                            <?php
                                     if($inv_get==""){
-                                        echo '<a href="./estadoResultadoAexcel.php">Descargar Excel</a>';
-                                    }
+                                        echo '<a class="btn btn-primary" href="./estadoResultadoAexcel.php">Descargar Estado de Resultados</a>';
                                 ?>
                             <center>
                                 <h3>Estado de Resultados</h3>
                                 <?php
-                                    if($inv_get==""){
+                                    
                                         echo <<< END
                                         <div class="bg-danger">
                                         <h5>Ciclo contable cerrado</h5>
@@ -335,7 +334,8 @@ if ($resulII) {
                                             <td></td>
                                             <td>$
                                                 <?php 
-                                                    echo (((($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF))-$saldoOG)+$saldoOI
+                                                    $utilidad = (((($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF))-$saldoOG)+$saldoOI;
+                                                    echo $utilidad;
                                                   ?>
                                             </td>
                                         </tr>
@@ -362,7 +362,9 @@ if ($resulII) {
                                         <tr>
                                             <td> (=) Utilidad del Ejercicio</td>
                                             <td></td>
-                                            <td>$<?php echo ($UAIR-$RL)-$ISR?></td>
+                                            <td>$<?php 
+                                                    echo ($UAIR-$RL)-$ISR;
+                                                ?></span></td>
                                         </tr>
                                     </tbody>
 
@@ -395,6 +397,15 @@ if ($resulII) {
                     </button>
                     </div>
                     END;
+                }else{
+                    echo <<<END
+                    <div class="col-md-3 col-md-offset-5">
+                    <button type="button" class="btn-flip btn btn-gradient btn-danger" onclick="cierre()">
+                    Realizar Cierre
+                    <span class="icon"></span>
+                    </button>
+                    </div>
+                    END;
                 }
             ?>
         </div>
@@ -422,6 +433,13 @@ if ($resulII) {
 $(document).ready(function() {
     $('#datatables-example').DataTable();
 });
+
+function cierre() {
+    var util = "<?php echo "$utilidad"?>";
+    document.location.href = "Cierre.php?utilidad=" + util;
+}
+</script>
+
 </script>
 <!-- end: Javascript -->
 

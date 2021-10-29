@@ -118,24 +118,7 @@ function ir3() {
                 <li><a href="estado.php">Estado de Resultados</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
-                    <?php
-                    /*
-                        include "../config/conexion.php";
-                        $result = $conexion->query("select * from anio where estado=1");
-                        if($result)
-                        {
-                          while ($fila=$result->fetch_object()) {
-                            $final=$fila->inventariof;
-                          }
-                        }
-                    */
-                        if ($final>-1) {
-                          echo "<li><a  onclick=cerrado2();>Balance General</a></li>";
-                        }else {
-                          echo "<li><a  href='balanceGeneral.php';'>Balance General</a></li>";
-                        }
-                         ?>
-
+                <li><a href="balanceGeneral.php">Balance General</a></li>
                 </ul>
             <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa fa-credit-card"></span> Costeo
@@ -145,22 +128,7 @@ function ir3() {
                     <li><a href="costeo.php">Generar costeo</a></li>
                 </ul>
             </li>
-            </li>
-
-            <?php
-                    include "../config/conexion.php";
-                    $result = $conexion->query("select * from anio where estado=1");
-                    if($result)
-                    {
-                      while ($fila=$result->fetch_object()) {
-                        $final=$fila->inventariof;
-                      }
-                    }
-                    if ($final>-1) {
-
-                    }
-                     ?>
-
+            
         </ul>
     </div>
 </div>

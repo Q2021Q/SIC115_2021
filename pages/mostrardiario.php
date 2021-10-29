@@ -137,7 +137,7 @@ if ($result) {
 
       echo "</tr>";
       $idpartida=$fila->idpartida;
-      $result2 = $conexion->query("select * from ldiario where idpartida='".$idpartida."'order by debe DESC");
+      $result2 = $conexion->query("select * from ldiario where idpartida='".$idpartida."'order by idldiario asc");
 
       if ($result2) {
 
