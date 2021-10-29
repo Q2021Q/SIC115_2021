@@ -10,6 +10,14 @@ $saveanio = $_REQUEST['saveanio'] ?? "";
 
 include "../config/conexion.php";
 
+$consulta = "Select l.debe, l.haber FROM ldiario l inner join catalogo c on l.idcatalogo = c.idcatalogo WHERE codigocuenta = '310302' or codigocuenta = '310402'";
+$result = $conexion->query($consulta);
+if($result){
+    $cierre=0;
+    while($fila = $result->fetch_object()){
+        $cierre = $cierre + $fila->debe + $fila->haber;
+    }
+}
 
 $result = $conexion->query("select * from anio where estado=1");
 if($result)
@@ -398,6 +406,7 @@ if ($resulII) {
                     </div>
                     END;
                 }else{
+                    if($cierre == 0){
                     echo <<<END
                     <div class="col-md-3 col-md-offset-5">
                     <button type="button" class="btn-flip btn btn-gradient btn-danger" onclick="cierre()">
@@ -406,6 +415,7 @@ if ($resulII) {
                     </button>
                     </div>
                     END;
+                    }
                 }
             ?>
         </div>
