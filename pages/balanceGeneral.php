@@ -281,6 +281,7 @@ if($_SESSION["logueado"] == TRUE) {
                 </center>
               </div>
               <div class="panel-body">
+                <a class="btn btn-primary" href="./balanceAexcell.php">Descargar Balance General</a>
                   <div class="responsive-table">
                     <table id="datatables-example" class="table table-striped table-bordered table-hover" width="100%" cellspacing="0">
                       <thead>
@@ -319,7 +320,7 @@ if($_SESSION["logueado"] == TRUE) {
                         <tr class="bg-light">
                           <td colspan='2' align='center'>ACTIVO NO CORRIENTE</td>
                         </tr>
-                        <tr class='bg-light'>";
+                        <tr class='bg-light'>
                           <td align='center'>TOTAL ACTIVO NO CORRIENTE</td>
                           <td align='center'><?php echo "$".$saldoActivoNC=0?></td>
                         </tr>
@@ -341,14 +342,14 @@ if($_SESSION["logueado"] == TRUE) {
                           <td align="left">IVA DEBITO FISCAL</td>
                           <td align="center"><?php echo "$".$saldoIVADF?></td>
                         </tr>
-                        <tr class='bg-light'>";
+                        <tr class='bg-light'>
                           <td align='center'>TOTAL PASIVO CORRIENTE</td>
                           <td align='center'><?php echo "$".$saldoPasivoC=$saldoCPP+$saldoIVADF?></td>
                         </tr>
                         <tr class="bg-light">
                           <td colspan='2' align='center'>PASIVO NO CORRIENTE</td>
                         </tr>
-                        <tr class='bg-light'>";
+                        <tr class='bg-light'>
                           <td align='center'>TOTAL PASIVO NO CORRIENTE</td>
                           <td align='center'><?php echo "$".$saldoPasivoNC=0?></td>
                         </tr>
