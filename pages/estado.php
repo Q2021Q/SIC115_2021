@@ -112,6 +112,17 @@ if ($resulOG) {
       }
     $saldoOG = $saldoOG + $saldoGF;
 }
+
+//Saldo Ingresos financieros
+$resulIF= $conexion->query("Select l.debe, l.haber FROM catalogo c INNER JOIN ldiario l ON c.idcatalogo = l.idcatalogo INNER JOIN partida p ON l.idpartida = p.idpartida WHERE  SUBSTRING(c.codigocuenta, 1,4) = '5201' AND p.idanio='".$anioActivo."'");
+if ($resulIF) {
+    $saldoIF = 0;
+    while ($fila = $resulIF->fetch_object()) {
+      $saldoIF=$saldoIF-($fila->debe)+($fila->haber);
+      }
+}
+
+
 //Saldo Otros ingresos
 $resulOI= $conexion->query("Select l.debe, l.haber FROM catalogo c INNER JOIN ldiario l ON c.idcatalogo = l.idcatalogo INNER JOIN partida p ON l.idpartida = p.idpartida WHERE  SUBSTRING(c.codigocuenta, 1,4) = '5203' AND p.idanio='".$anioActivo."'");
 if ($resulOI) {
@@ -119,6 +130,7 @@ if ($resulOI) {
     while ($fila = $resulOI->fetch_object()) {
       $saldoOI=$saldoOI-($fila->debe)+($fila->haber);
       }
+    $saldoOI = $saldoOI + $saldoIF;
 }
 $resulII= $conexion->query("select inventarioi from anio where idanio='".$anioActivo."'");
 if ($resulII) {
