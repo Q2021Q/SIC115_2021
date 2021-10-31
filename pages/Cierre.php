@@ -175,19 +175,6 @@ if($_SESSION["logueado"] == TRUE){
     }
   }
 
-    /*
-    $consulta = "Select idcatalogo as id FROM catalogo WHERE codigocuenta = '310302'";
-    $result = $conexion->query($consulta);
-    $registro = $result->fetch_object();
-    $idcatalogo = $registro->id;
-
-    $consulta = "INSERT INTO ldiario VALUES ('null','".$numeropartida."','".$idcatalogo."','0','".$utilidad."','".$anioActivo."')";
-    $insertar = $conexion->query($consulta);
-        if($insertar){
-          //msg('cuenta'.$idcatalogo.' cargada');
-        }
-
-        */
   }elseif($utilidad<0){
     $utilidad = $utilidad*-1;
     //obteniendo id de utilidad del ejercicio
@@ -210,7 +197,7 @@ if($_SESSION["logueado"] == TRUE){
   }
 
 
-  header("Location: ./mostrardiario.php");
+  header("Location: ./balanceGeneral.php");
   }else{
     header("Location: ./estado.php");
   }

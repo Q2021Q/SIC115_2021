@@ -25,6 +25,7 @@ if ($logueado==TRUE) {
     <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/login.css" />
+    
 	<link rel="shortcut icon" href="./asset/img/logomi.jpg">
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -69,16 +70,10 @@ if ($logueado==TRUE) {
                 <p>SIC-115</p>
                 <nav>
                     <ul>
-                        <li class="tooltip"><a class="icon fa-user" onclick="llamar()"><span
-                                    class="label tooltiptext">Iniciar Sesion</span></a></li>
-
-                        <!--
-								<li><a href="#" class="icon fa-archive"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-								<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-								<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>!
-							-->
+                        <li class="tooltip"><a class="icon fa-user" onclick="llamar()"><span class="label btn tooltiptext">Iniciar Sesion</span></a></li>
                     </ul>
+
+                    <br>
                     <ul>
                         <div id="logindiv">
 
@@ -86,12 +81,6 @@ if ($logueado==TRUE) {
                     </ul>
                 </nav>
             </header>
-
-
-            <!-- Footer 
-					<footer id="footer">
-						<span class="copyright">&copy; Tarea Final SIC-115</span>
-					</footer>-->
 
         </div>
     </div>

@@ -89,7 +89,7 @@ if ($result) {
             alert("Complete los campos");
         } else {
             if (document.getElementById("aux").value == "modificar") {
-                alert('Va a modificar.');
+                //alert('Va a modificar.');
                 comprobarR(document.getElementById('codigocuenta').value);
                 document.getElementById('bandera').value = "modificar";
                 document.turismo.submit();
@@ -142,7 +142,7 @@ if ($result) {
                     </div>
                 </div>
             </div>
-            <form id="turismo" name="turismo" action="" method="get">
+            <form id="turismo" name="turismo" action="" method="post">
                 <input type="hidden" name="bandera" id="bandera">
                 <input type="hidden" name="baccion" id="baccion" value="<?php echo $idcatalogoR; ?>">
                 <input type="hidden" name="aux" id="aux" value="<?php echo $aux; ?>">
@@ -405,8 +405,6 @@ $(document).ready(function() {
 </html>
 <?php
 
-include "../config/conexion.php";
-
 $bandera      = $_REQUEST["bandera"] ?? "";
 $baccion      = $_REQUEST["baccion"] ?? "";
 $nivelcuenta  = $_REQUEST["nivelcuenta"] ?? "";
@@ -456,7 +454,7 @@ if ($bandera == "modificar") {
     $resultado = $conexion->query($consulta);
     if ($resultado) {
       echo "<script type='text/javascript'>";
-      echo "alert('$texto');";
+      echo "alert('modificado');";
       echo "document.location.href='cuenta.php';";
       echo "</script>";
     } else {

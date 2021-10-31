@@ -27,9 +27,6 @@ if ($result) {
 <head>
 
   <meta charset="utf-8">
-  <meta name="description" content="Miminium Admin Template v.1">
-  <meta name="author" content="Isna Nur Azis">
-  <meta name="keyword" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema Contable</title>
 
@@ -80,10 +77,9 @@ if ($result) {
         }
          function confirmar(id)
         {
-          if (confirm("!!Advertencia!! Desea Eliminar Este Registro?")) {
+          if (confirm("!!Advertencia!! ¿Desea Eliminar Este Registro?")) {
             document.getElementById('bandera').value='desaparecer';
             document.getElementById('baccion').value=id;
-            alert(id);
             document.turismo.submit();
           }else
           {
@@ -153,7 +149,7 @@ if ($result) {
                                     Guardar <span class="fa fa-trash"></span>
                                   </div>
                                   <div class="side back">
-                                    continuar?
+                                    ¿continuar?
                                   </div>
                                 </div>
                                 <span class="icon"></span>

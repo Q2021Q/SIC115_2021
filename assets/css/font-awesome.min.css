@@ -24,6 +24,7 @@
 .tooltip {
     position: relative;
     display: inline-block;
+    color: #000;
     /*border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
@@ -33,7 +34,7 @@
     visibility: hidden;
     width: 120px;
     background-color: black;
-    color: #fff;
+    color: #000;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;

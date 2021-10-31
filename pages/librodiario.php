@@ -20,7 +20,7 @@ if($accion=="procesar")
 {
   $totalcargo=0;
   $totalabono=0;
-  $acumulador=$_SESSION['acumulador'] ?? "";
+  $acumulador=$_SESSION['acumulador'];
   $matriz=$_SESSION['matriz'];
   for ($i=1; $i <=$acumulador ; $i++) {
     if (array_key_exists($i, $matriz)) {
@@ -92,17 +92,18 @@ if($accion=="procesar")
     function modify(id) {
         document.location.href = 'cuenta.php?id=' + id;
     }
-
+    /*
     function confirmar(id) {
         if (confirm("!!Advertencia!! Desea Eliminar Este Registro?")) {
             document.getElementById('bandera').value = 'desaparecer';
             document.getElementById('baccion').value = id;
-            alert(id);
+            //alert(id);
             document.turismo.submit();
         } else {
             alert("Error al borrar.");
         }
     }
+    */
     //ajax para que se escriba el nombre de la cuenta en el inputcuenta
     function ajaxNombreCuenta(str) {
         if (str == "") {
@@ -214,6 +215,7 @@ if($accion=="procesar")
                 location.href = "librodiario.php?accion=procesar&concepto=" + document.getElementById("conceptoPartida")
                     .value + "&fecha=" + document.getElementById("fechaPartida").value;
             }
+        
         }
     }
     </script>
@@ -228,7 +230,7 @@ if($accion=="procesar")
             <div class="panel box-shadow-none content-header">
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Libro Diario******</h3>
+                        <h3 class="animated fadeInLeft">Libro Diario</h3>
                         <p class="animated fadeInDown">
                             Tabla <span class="fa-angle-right fa"></span> Partida
                         </p>
@@ -307,7 +309,7 @@ if($accion=="procesar")
                                         Procesar <span class="fa fa-edit"></span>
                                     </div>
                                     <div class="side back">
-                                        Continuar?
+                                        ¿Continuar?
 
                                     </div>
                                 </div>
@@ -512,7 +514,7 @@ function guardarPartida()
     while ($fila=$resultAnio->fetch_object())
     {
       $idanio=$fila->idanio;
-      msg($idanio);
+      //msg($idanio);
     }
   }
   $concepto=$_REQUEST['concepto'];

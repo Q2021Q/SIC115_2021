@@ -1,6 +1,6 @@
 <?php
 //Codigo que muestra solo los errores exceptuando los notice.
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(0);
 ?>
 <?php
 session_start();
@@ -17,7 +17,7 @@ if ($opcion=="agregar") {
 		$abono=$montoPartida;
 		$cargo=null;
 	}
-	$acumulador=$_SESSION["acumulador"] ?? "";
+	$acumulador=$_SESSION["acumulador"];
 	$matriz=$_SESSION["matriz"];
 	$acumulador++;
 	$matriz[$acumulador][0]=$idcatalogo;

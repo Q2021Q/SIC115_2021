@@ -101,7 +101,7 @@ if($_SESSION["logueado"] == TRUE) {
                 <div class="col-md-12">
                 <div class="panel">
                   <div class="panel-heading">
-                    <a href="./libroDiarioAexcel.php">Descargar Excel</a>
+                    <a class="btn btn-primary" href="./libroDiarioAexcel.php">Descargar Libro Diario</a>
                     <center>
                       <h3>Libro Diario</h3>
                       <input type="hidden" name="anioActivo" id="anioActivo" value="<?php echo $anioActivo; ?>">
