@@ -192,6 +192,7 @@ if($_SESSION["logueado"] == TRUE) {
                 </center>
               </div>
               <div class="panel-body">
+                <a class="btn btn-primary" href="./balanceAexcell.php">Descargar Balance General</a>
                   <div class="responsive-table">
                     <table id="datatables-example" class="table table-striped table-bordered table-hover" width="100%" cellspacing="0">
                       <thead>
