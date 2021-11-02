@@ -1,6 +1,6 @@
 <?php
 //Codigo que muestra solo los errores exceptuando los notice.
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(0);
 ?>
 <!-- start:Left Menu -->
 <?php

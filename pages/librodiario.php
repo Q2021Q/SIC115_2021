@@ -1,6 +1,6 @@
 <?php
 //Codigo que muestra solo los errores exceptuando los notice.
-error_reporting(E_ALL & ~E_NOTICE);
+error_reporting(0);
 ?>
 <?php 
   session_start();
@@ -20,8 +20,8 @@ if($accion=="procesar")
 {
   $totalcargo=0;
   $totalabono=0;
-  $acumulador=$_SESSION['acumulador'];
-  $matriz=$_SESSION['matriz'];
+  $acumulador=$_SESSION['acumulador'] ?? "";
+  $matriz=$_SESSION['matriz'] ?? "";
   for ($i=1; $i <=$acumulador ; $i++) {
     if (array_key_exists($i, $matriz)) {
       $totalcargo=$totalcargo+$matriz[$i][1];
@@ -37,6 +37,7 @@ if($accion=="procesar")
     guardarPartida();
   }
 }
+$aux="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
