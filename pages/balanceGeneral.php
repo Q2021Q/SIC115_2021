@@ -192,7 +192,17 @@ if($_SESSION["logueado"] == TRUE) {
                 </center>
               </div>
               <div class="panel-body">
-                <a class="btn btn-primary" href="./balanceAexcell.php">Descargar Balance General</a>
+                <?php  
+                 include '../config/conexion.php';
+
+                   $result = $conexion->query("select * from anio where estado=1");
+                   $fila=$result->fetch_object();
+                   $banderaBtn=$fila->inventariof;
+
+                  if ($banderaBtn!=-1) {
+                   echo '<a class="btn btn-primary" href="./balanceAexcell.php">Descargar Balance General </a>';
+                  }
+                ?>
                   <div class="responsive-table">
                     <table id="datatables-example" class="table table-striped table-bordered table-hover" width="100%" cellspacing="0">
                       <thead>

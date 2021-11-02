@@ -28,7 +28,7 @@ if($_SESSION["logueado"] == TRUE){
       echo "alert('Exito al ingresar partida de cierre');";
       echo "</script>";
   }else{
-    msg("Fallo al ingresar partida de cierre");
+   // msg("Fallo al ingresar partida de cierre");
   }
 
   //Realizando cierre para metodo de inventario analitico

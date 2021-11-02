@@ -115,7 +115,7 @@ if($_SESSION["logueado"] == TRUE) {
                   <h3>Balance General del periodo</h3>
                   <h3>Al <?php echo "{$fechaMaximaDia} de {$fechaMaximaMes} del {$anioActivo}" ?></h3>
                 </center>
-                    <table width="80%">
+                    <table width="100%">
                       <thead>
                         <tr>
                           <td>CONCEPTO</td>
