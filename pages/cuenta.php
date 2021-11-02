@@ -95,7 +95,7 @@ if ($result) {
                 document.turismo.submit();
             } else {
                 comprobarR(document.getElementById('codigocuenta').value);
-                alert(document.getElementById('nivelcuenta').value);
+                //alert(document.getElementById('nivelcuenta').value);
                 document.getElementById('bandera').value = "add";
                 document.turismo.submit();
             }
@@ -116,7 +116,7 @@ if ($result) {
         if (confirm("!!Advertencia!! Desea Eliminar Este Registro?")) {
             document.getElementById('bandera').value = 'desaparecer';
             document.getElementById('baccion').value = id;
-            alert(id);
+            //alert(id);
             document.turismo.submit();
         } else {
             alert("Error al borrar.");

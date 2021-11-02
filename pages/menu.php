@@ -5,6 +5,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 <!-- start:Left Menu -->
 <?php
 include "../config/conexion.php";
+$anioActivo='';
 $final = null;
 $result = $conexion->query("select * from anio where estado=1");
 if($result)
@@ -80,39 +81,37 @@ function ir3() {
                 </ul>
                 <input type="hidden" id="anioActivo" name="anioActivo" value="<?php echo $anioActivo;?>">
             </li>
-            <li class="active ripple">
+            <?php
+            if($anioActivo!=''){
+                echo <<< END
+                <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa-list fa"></span> Catalogo
-                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-
-                    <li><a href="cuenta.php">Gestionar Catálogo</a></li>
+                <li><a href="cuenta.php">Gestionar Catálogo</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
-
-                    <li><a href="listacuenta.php">Lista</a></li>
+                <li><a href="listacuenta.php">Lista</a></li>
                 </ul>
-            </li>
-            <li class="active ripple">
+                </li>
+                <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa-book fa"></span> Libro Diario
-                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-
-                    <li><a href="librodiario.php">Registrar</a></li>
+                <li><a href="librodiario.php">Registrar</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
-
-                    <li><a href="mostrardiario.php">Mostrar</a></li>
+                <li><a href="mostrardiario.php">Mostrar</a></li>
                 </ul>
-            </li>
-            <li class="active ripple">
+                </li>
+                <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa-book fa"></span> Estado Financieros
-                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-
-                    <li><a href="libromayor.php">Libro Mayor</a></li>
+                <li><a href="libromayor.php">Libro Mayor</a></li>
                 </ul>
                 <ul class="nav nav-list tree">
                 <li><a href="estado.php">Estado de Resultados</a></li>
@@ -120,15 +119,17 @@ function ir3() {
                 <ul class="nav nav-list tree">
                 <li><a href="balanceGeneral.php">Balance General</a></li>
                 </ul>
-            <li class="active ripple">
+                <li class="active ripple">
                 <a class="tree-toggle nav-header"><span class="fa fa-credit-card"></span> Costeo
-                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                <span class="fa-angle-right fa right-arrow text-right"></span>
                 </a>
                 <ul class="nav nav-list tree">
-                    <li><a href="costeo.php">Generar costeo</a></li>
+                <li><a href="costeo.php">Generar costeo</a></li>
                 </ul>
-            </li>
-            
+                </li>
+                END;
+            }
+            ?>
         </ul>
     </div>
 </div>
