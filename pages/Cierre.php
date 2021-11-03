@@ -21,7 +21,7 @@ if($_SESSION["logueado"] == TRUE){
   }
   $result->close();
 
-  $consulta = "INSERT INTO partida VALUES ('".$numeropartida."','cierre de periodo contable','2022-12-31','2022')";
+  $consulta = "INSERT INTO partida VALUES ('".$numeropartida."','cierre de periodo contable','".$anioActivo."-12-31','".$anioActivo."')";
   $cierre_query = $conexion->query($consulta);
   if($cierre_query){
       echo "<script type='text/javascript'>";
