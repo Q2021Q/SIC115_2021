@@ -361,10 +361,10 @@ echo "</tr>";
                                                     <th>Cédula de asignacion de costos CPP</th>
                                                     <th>Unidades</th>
                                                     <th>CMP($)</th>
-                                                    <th>PU</th>
+                                                    <th>PU($)</th>
                                                     <th>Unidades</th>
                                                     <th>COCO($)</th>
-                                                    <th>PU</th>
+                                                    <th>PU($)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -373,56 +373,56 @@ echo "</tr>";
 echo "<tr>";
 echo "<td>Unidades Iniciadas</td>";
 echo "<td>". $unidadesIniciadasPeriodo ."</td>";
-echo "<td>". $materiaPrima ."</td>";
+echo "<td>". number_format($materiaPrima,2) ."</td>";
 echo "<td>". $puUnidadesIniciadas ."</td>";
 echo "<td>". $unidadesEquivalentes2 ."</td>";
-echo "<td>". $costosConversion ."</td>";
-echo "<td>". $puCOCO ."</td>";
-echo "<td>". $totalUnidadesIniciadas ."</td>";
+echo "<td>". number_format($costosConversion,2) ."</td>";
+echo "<td>". number_format($puCOCO,2) ."</td>";
+echo "<td>$". number_format($totalUnidadesIniciadas,2) ."</td>";
 echo "</tr>";
 
 echo "<tr>";
 echo "<td>(+) Inventario inicial de productos en procesos</td>";
 echo "<td>". $inventarioInicial ."</td>";
-echo "<td>". $costosMateriaPrima ."</td>";
+echo "<td>". number_format($costosMateriaPrima,2) ."</td>";
 echo "<td>". $puInventarioInicial ."</td>";
 echo "<td>". $inventarioInicialGradoAvance ."</td>";
-echo "<td>". $costosConversionInventarioInicial ."</td>";
+echo "<td>". number_format($costosConversionInventarioInicial,2) ."</td>";
 echo "<td>". $puInventarioInicialCOCO ."</td>";
-echo "<td>". $totalInventarioInicial ."</td>";
+echo "<td>$". number_format($totalInventarioInicial,2) ."</td>";
 echo "</tr>";
 
 echo "<tr>";//3ra FILA
 echo "<td>(=) Unidades disponibles</td>";
 echo "<td>". $unidadesDisponiblesTotales ."</td>";
-echo "<td>". $unidadesDisponiblesTotales2 ."</td>";
-echo "<td>". $puUnidadesDisponibles ."</td>";
+echo "<td>". number_format($unidadesDisponiblesTotales2,2) ."</td>";
+echo "<td>". number_format($puUnidadesDisponibles,2) ."</td>";
 echo "<td>". $unidadesDisponiblesTotalesCOCO ."</td>";
-echo "<td>". $unidadesDisponiblesTotalesCOCO2 ."</td>";
-echo "<td>". $puUnidadesDisponiblesCOCO ."</td>";
-echo "<td>". $totalUnidadesDisponibles ."</td>";
+echo "<td>". number_format($unidadesDisponiblesTotalesCOCO2,2) ."</td>";
+echo "<td>". number_format($puUnidadesDisponiblesCOCO,2) ."</td>";
+echo "<td>$". number_format($totalUnidadesDisponibles,2) ."</td>";
 echo "</tr>";
 
 echo "<tr>";//4ta FILA
 echo "<td>(-) Inventario final de productos en procesos</td>";
 echo "<td>". $inventarioFinal ."</td>";
-echo "<td>". $cmpTotal ."</td>";
-echo "<td>". $puUnidadesDisponibles ."</td>";
+echo "<td>". number_format($cmpTotal,2) ."</td>";
+echo "<td>". number_format($puUnidadesDisponibles,2) ."</td>";
 echo "<td>". $inventarioFinalGradoAvance ."</td>";
-echo "<td>". $cocoTotal ."</td>";
-echo "<td>". $puCOCO ."</td>";
-echo "<td>". $totalInventarioFinal ."</td>";
+echo "<td>". number_format($cocoTotal,2) ."</td>";
+echo "<td>". number_format($puCOCO,2) ."</td>";
+echo "<td>$". number_format($totalInventarioFinal,2) ."</td>";
 echo "</tr>";
 
 echo "<tr>";//5ta FILA 
 echo "<td>(=) Unidades Terminadas</td>";
 echo "<td>". $tot1 ."</td>";
-echo "<td>". $tot2 ."</td>";
-echo "<td>". $tot3 ."</td>";
+echo "<td>". number_format($tot2,2) ."</td>";
+echo "<td>". number_format($tot3,2) ."</td>";
 echo "<td>". $tot4 ."</td>";
-echo "<td>". $tot5 ."</td>";
-echo "<td>". $tot6 ."</td>";
-echo "<td>". $tot7 ."</td>";
+echo "<td>". number_format($tot5,2) ."</td>";
+echo "<td>". number_format($tot6,2) ."</td>";
+echo "<td>$". number_format($tot7,2) ."</td>";
 echo "</tr>";
 
 
@@ -459,12 +459,12 @@ echo "</tr>";
 
 echo "<tr>";
 echo "<td>Costo Total del proceso</td>";
-echo "<td>". $tot7 ."</td>";
+echo "<td>$". number_format($tot7,2) ."</td>";
 echo "</tr>";
 
 echo "<tr>";
 echo "<td>Precio Unitario</td>";
-echo "<td>". $precioUnitario ."</td>";
+echo "<td>$". number_format($precioUnitario,2) ."</td>";
 echo "</tr>";
 
 ?>
