@@ -243,66 +243,66 @@ if ($resulII) {
                                         <tr>
                                             <td>Ventas</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoV;?></td>
+                                            <td>$<?php echo number_format($saldoV,2);?></td>
                                         </tr>
                                         <tr>
                                             <td>(-) Rebajas y devoluciones sobre ventas</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoRDV;?></td>
+                                            <td>$<?php echo number_format($saldoRDV,2);?></td>
                                         </tr>
                                         <tr>
                                             <td>(=) Ventas netas</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoV-$saldoRDV;?></td>
+                                            <td>$<?php echo number_format($saldoV-$saldoRDV,2);?></td>
                                         </tr>
                                         <tr>
                                             <td>(-) Costo de ventas</td>
                                             <td></td>
-                                            <td>$<?php echo ((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal;?>
+                                            <td>$<?php echo number_format(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal,2);?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td> Compras</td>
-                                            <td>$<?php echo $saldoComp;?></td>
+                                            <td>$<?php echo number_format($saldoComp,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(+) Gastos Sobre Compras</td>
-                                            <td>$<?php echo $saldoGasComp;?></td>
+                                            <td>$<?php echo number_format($saldoGasComp,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(=) Compras Totales</td>
-                                            <td>$<?php echo $saldoComp+$saldoGasComp;?></td>
+                                            <td>$<?php echo number_format($saldoComp+$saldoGasComp,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(-) Rebajas y devoluciones Sobre Compras</td>
-                                            <td>$<?php echo $saldoRDC;?></td>
+                                            <td>$<?php echo number_format($saldoRDC,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(=) Compras Netas</td>
-                                            <td>$<?php echo ($saldoComp+$saldoGasComp)-$saldoRDC;?></td>
+                                            <td>$<?php echo number_format(($saldoComp+$saldoGasComp)-$saldoRDC,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(+) Inventario Inicial</td>
-                                            <td>$<?php echo $saldoII;?></td>
+                                            <td>$<?php echo number_format($saldoII,2);?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(=) Mercaderia Disponible</td>
                                             <td>$
                                                 <?php 
-                                                    echo (($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII;
+                                                    echo number_format((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII,2);
                                                   ?>
                                             </td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td>(-) Inventario Final</td>
-                                            <td>$<?php echo $inventariofinal?></td>
+                                            <td>$<?php echo number_format($inventariofinal,2)?></td>
 
                                             <td></td>
                                         </tr>
@@ -311,23 +311,23 @@ if ($resulII) {
                                             <td></td>
                                             <td>$
                                                 <?php 
-                                                    echo ($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal)
+                                                    echo number_format(($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal),2);
                                                   ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>(-) Gastos de Operacion</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoGA+$saldoGV+$saldoGF?></td>
+                                            <td>$<?php echo number_format($saldoGA+$saldoGV+$saldoGF,2)?></td>
                                         </tr>
                                         <tr>
                                             <td> Gastos de Administracion</td>
-                                            <td>$<?php echo $saldoGA?></td>
+                                            <td>$<?php echo number_format($saldoGA,2)?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
                                             <td> (+) Gastos de Venta</td>
-                                            <td>$<?php echo $saldoGV?></td>
+                                            <td>$<?php echo number_format($saldoGV,2)?></td>
                                             <td></td>
                                         </tr>
                                         <tr>
@@ -335,19 +335,19 @@ if ($resulII) {
                                             <td></td>
                                             <td>$
                                                 <?php 
-                                                    echo (($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF)
+                                                    echo number_format((($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF),2)
                                                   ?>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td> (-) Otros gastos</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoOG?></td>
+                                            <td>$<?php echo number_format($saldoOG,2)?></td>
                                         </tr>
                                         <tr>
                                             <td> (+) Otros Ingresos</td>
                                             <td></td>
-                                            <td>$<?php echo $saldoOI?></td>
+                                            <td>$<?php echo number_format($saldoOI,2)?></td>
                                         </tr>
                                         <tr>
                                             <td> (=) Utilidad Antes de Impuesto Y Reserva</td>
@@ -355,7 +355,7 @@ if ($resulII) {
                                             <td>$
                                                 <?php 
                                                     $utilidad = (((($saldoV-$saldoRDV)-(((($saldoComp+$saldoGasComp)-$saldoRDC)+$saldoII)-$inventariofinal))-($saldoGA+$saldoGV+$saldoGF))-$saldoOG)+$saldoOI;
-                                                    echo $utilidad;
+                                                    echo number_format($utilidad,2);
                                                   ?>
                                             </td>
                                         </tr>
@@ -366,24 +366,24 @@ if ($resulII) {
                                         <tr>
                                             <td> (-) Reserva Legal (7%)</td>
                                             <td></td>
-                                            <td>$<?php echo $RL?></td>
+                                            <td>$<?php echo number_format($RL,2)?></td>
                                         </tr>
                                         <tr>
                                             <td> (=) Utilidad antes de Impuesto sobre la Renta</td>
                                             <td></td>
-                                            <td>$<?php echo $UAIR-$RL?></td>
+                                            <td>$<?php echo number_format($UAIR-$RL,2)?></td>
                                         </tr>
                                         <?php $ISR=($UAIR-$RL)*0.30 ?>
                                         <tr>
                                             <td> (-) Impuesto sobre la renta (30%)</td>
                                             <td></td>
-                                            <td>$<?php echo $ISR?></td>
+                                            <td>$<?php echo number_format($ISR,2)?></td>
                                         </tr>
                                         <tr>
                                             <td> (=) Utilidad del Ejercicio</td>
                                             <td></td>
                                             <td>$<?php 
-                                                    echo ($UAIR-$RL)-$ISR;
+                                                    echo number_format(($UAIR-$RL)-$ISR,2);
                                                 ?></span></td>
                                         </tr>
                                     </tbody>

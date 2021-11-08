@@ -214,6 +214,7 @@ if($_SESSION["logueado"] == TRUE) {
                       <tbody>
                         
                         <?php
+                          $saldopasivos =0;
                           //impresion de la seccion
                           foreach($arregloSeccionPrincipal as $seccion){
                             $saldoSeccion = 0;
@@ -239,10 +240,11 @@ if($_SESSION["logueado"] == TRUE) {
                                   $gru = substr($control[0],0,2);
                                   if($gru == $grupo[0]){
                                     if($control[2]!=0){
+                                      $saldoimp = number_format($control[2],2);
                                       echo <<<END
                                       <tr class="bg-light">
                                       <td align="left">$control[1]</td>
-                                      <td align="center">$control[2]</td>
+                                      <td align="left">$$saldoimp</td>
                                       </tr>
                                       END;
                                       $saldoGrupo = $saldoGrupo + $control[2];
@@ -251,11 +253,11 @@ if($_SESSION["logueado"] == TRUE) {
                                     continue;
                                   }
                                 }
-
+                                $saldoimp = number_format($saldoGrupo,2);
                                 echo <<<END
                                 <tr class='bg-light'>
                                 <td align='center'>TOTAL $grupo[1]</td>
-                                <td align='center'>$saldoGrupo</td>
+                                <td align='center'>$$saldoimp</td>
                                 </tr>
                                 END;
                                 $saldoSeccion = $saldoSeccion + $saldoGrupo;
@@ -263,14 +265,27 @@ if($_SESSION["logueado"] == TRUE) {
                                 continue;
                               }
                             }
-
+                            $saldoimp = number_format($saldoSeccion,2);
                             echo <<<END
                             <tr class="bg-success">
                             <td align="center">TOTAL $seccion[1]</td>
-                            <td align="center">$saldoSeccion</td>
+                            <td align="center">$$saldoimp</td>
                             </tr>
                             END;
+
+                            if($seccion[0]==2 || $seccion[0]==3){
+                              $saldopasivos = $saldopasivos + $saldoSeccion;
+                            }
                           }
+
+                          $saldoimp = number_format($saldopasivos,2);
+                          echo <<<END
+                            <tr class="bg-warning">
+                            <td align="center">TOTAL PASIVO + PATRIMONIO</td>
+                            <td align="center">$$saldoimp</td>
+                            </tr>
+                            END;
+
                         ?>
                       </tbody>
                     </table>

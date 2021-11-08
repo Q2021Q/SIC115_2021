@@ -146,13 +146,16 @@ if($result)
                                       $saldofinal = $saldofinal - ($subcuenta->debe)+($subcuenta->haber);
                                     }
                                   }else{
+                                    $debimp = $debe_sub==0 ? '--' : '$'.number_format($debe_sub,2);
+                                    $habimp = $haber_sub==0 ? '--' : '$'.number_format($haber_sub,2);
+                                    $salimp = $saldofinal==0 ? '--' : '$'.number_format($saldofinal,2);
                                     echo <<< END
                                     <tr>
                                     <td>Movimiento del día</td>
                                     <td>$fecha</td>
-                                    <td class='bg-info'>$debe_sub</td>
-                                    <td class='bg-danger'>$haber_sub</td>
-                                    <td class='bg-warning'>$saldofinal</td>
+                                    <td class='bg-info'>$debimp</td>
+                                    <td class='bg-danger'>$habimp</td>
+                                    <td class='bg-warning'>$salimp</td>
                                     </tr>
                                     END;
 
@@ -166,14 +169,16 @@ if($result)
                                     $fecha = $subcuenta->fecha;
                                   }
                                 }
-
+                                $debimp = $debe_sub==0 ? '--' : '$'.number_format($debe_sub,2);
+                                $habimp = $haber_sub==0 ? '--' : '$'.number_format($haber_sub,2);
+                                $salimp = $saldofinal==0 ? '--' : '$'.number_format($saldofinal,2);
                                 echo <<< END
                                     <tr>
                                     <td>Movimiento del día</td>
                                     <td>$fecha</td>
-                                    <td class='bg-info'>$debe_sub</td>
-                                    <td class='bg-danger'>$haber_sub</td>
-                                    <td class='bg-warning'>$saldofinal</td>
+                                    <td class='bg-info'>$debimp</td>
+                                    <td class='bg-danger'>$habimp</td>
+                                    <td class='bg-warning'>$salimp</td>
                                     </tr>
                                     END;
 

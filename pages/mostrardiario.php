@@ -164,12 +164,12 @@ if ($result) {
                 if ($debe==0) {
                     echo "<td align='center' class='bg-info'>--</td>";
                 }else {
-                  echo "<td align='left' class='bg-info'>$ " . $debe . "</td>";
+                  echo "<td align='left' class='bg-info'>$ " . number_format($debe,2) . "</td>";
                 }
                 if ($haber==0) {
                     echo "<td align='center' class='bg-danger'>--</td>";
                 }else {
-                  echo "<td align='left' class='bg-danger'>$ " . $haber . "</td>";
+                  echo "<td align='left' class='bg-danger'>$ " . number_format($haber,2) . "</td>";
                 }
 
 
